@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
-	"github.com/gorilla/mux"
 	"github.com/jriseley/gophercon18/pkg/routing"
 )
 
@@ -12,7 +10,7 @@ import (
 func main() {
 	log.Printf("Service is starting...")
 	r := routing.BaseRouter()
-	http.ListenAndServe(":8000", r)
+	log.Fatal(http.ListenAndServe(":8000", r))
 }
 
 
