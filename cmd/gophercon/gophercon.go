@@ -20,7 +20,22 @@ func main() {
 	r := routing.BaseRouter()
 	ws := webserver.New("", port, r)
 
-	log.Fatal(ws.Start())
+	go func() {
+		log.Fatal(ws.Start())
+	}()
+	
+	internalPort := os.Getenv("INTERNAL_PORT")
+
+	
+	if len(internalPort) == 0 {
+		log.Fatal("Internal port wasn't set\n")
+	}
+
+	diagnosticsRouter := routing.DiagonsticsRouter()
+	diagnosticsServer := webserver.New(
+	"", internalPort, diagnosticsRouter,
+	)
+	log.Fatal(diagnosticsServer.Start())
 }
 
 

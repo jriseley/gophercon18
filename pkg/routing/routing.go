@@ -20,7 +20,7 @@ func BaseRouter() *mux.Router {
 
 func homeHandler() func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("Request is processing: %s", r.URL.Path)
-		fmt.Fprint(w, "Hello! Your request was processed.")
+		log.Printf("Request is processing: %s\n", r.URL.Path)
+		fmt.Fprint(w, "Hello! Your request was processed.\n")
 	}
 }
