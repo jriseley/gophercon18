@@ -1,3 +1,5 @@
+package webserver
+
 import (
 	"net"
 	"net/http"
