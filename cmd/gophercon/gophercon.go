@@ -2,15 +2,16 @@ package main
 
 import (
 	"log"
+	"os"
 	"github.com/jriseley/gophercon18/pkg/routing"
 	"github.com/jriseley/gophercon18/pkg/webserver"
-	"os"
+	"github.com/jriseley/gophercon18/version"
 )
 
 
 func main() {
-	log.Printf("Service is starting...")
-	port := os.Getenv("SERVICE_PORT")
+	log.Printf("Service is starting, version is %s...", version.Release)
+	port := os.Getenv("PORT")
 
 	if len(port) == 0 {
 		log.Fatal("Service port wasn't set\n")
